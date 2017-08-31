@@ -1,13 +1,12 @@
 /* global angular $ io */
 
 (function () {
-  var socket = io()
-
   angular.module('chattyApp', [])
   .controller('ChattyController', ['$scope', ChattyController])
 
   function ChattyController ($scope) {
     // contains all incoming messages
+    var socket = io()
     let self = this
     this.messages = []
 
@@ -20,13 +19,8 @@
       $scope.$apply()
     })
 
-    $(function () {
-      // load the socket.io-client
-      $('form').submit(function (e) {
-        socket.emit('chat message', $('#m').val())
-        $('#m').val('')
-        return false
-      })
-    })
+    this.sendMessage = function () {
+      socket.emit('chat message', this.message)
+    }
   }
 })()

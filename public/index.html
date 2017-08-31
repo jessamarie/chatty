@@ -7,12 +7,13 @@
   </head>
   <body ng-app="chattyApp" ng-controller="ChattyController as vm">
     <ul id="messages">
-      <li ng-repeat="message in vm.messages">
-        {{message}}
+      <!-- use track by since clients may send the same message twice -->
+      <li ng-repeat="message in vm.messages track by $index">
+        {{vm.messages[$index]}}
       </li>
     </ul>
-    <form action="">
-      <input id="m" autocomplete="off" />
+    <form ng-submit="vm.sendMessage()">
+      <input id="m" ng-model="vm.message" autocomplete="off" />
       <button>Send</button>
     </form>
 
