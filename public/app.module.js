@@ -1,3 +1,5 @@
 (function () {
-  angular.module('chattyApp', [])
+  angular.module('chattyApp', [
+    'ui.router'
+  ])
 })
