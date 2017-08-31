@@ -8,8 +8,4 @@ $(function () {
     $('#m').val('')
     return false
   })
-  // append to page
-  socket.on('chat message', function (msg) {
-    $('#messages').append($('<li>').text(msg))
-  })
 })

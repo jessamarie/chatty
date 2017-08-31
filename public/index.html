@@ -5,16 +5,21 @@
     <link rel="stylesheet" href="style.css">
     <title>Chatty</title>
   </head>
-  <body>
-    <ul id="messages"></ul>
-    <form action="">
-      <input id="m" autocomplete="off" />
+  <body ng-app="chattyApp" ng-controller="ChattyController as vm">
+    <ul id="messages">
+      <!-- use track by since clients may send the same message twice -->
+      <li ng-repeat="message in vm.messages track by $index">
+        {{vm.messages[$index]}}
+      </li>
+    </ul>
+    <form ng-submit="vm.sendMessage()">
+      <input id="m" ng-model="vm.message" autocomplete="off" />
       <button>Send</button>
     </form>
 
     <script src="/socket.io/socket.io.js"></script>
-    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
-
-    <script src="script.js" charset="utf-8"></script>
+    <script src="/angular/angular.js"></script>
+    <script src="app.module.js" charset="utf-8"></script>
+    <!-- <script src="/@uirouter/angularjs/release/angular-ui-router.js"></script> -->
   </body>
 </html>
