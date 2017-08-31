@@ -1,4 +1,4 @@
-/* global angular $ io */
+/* global angular io */
 
 (function () {
   angular.module('chattyApp', [])
@@ -13,7 +13,6 @@
     // append to page
     socket.on('chat message', function (msg) {
       self.messages.push(msg)
-      console.log(msg)
       // Socket events will not trigger a state change in Angular.
       // so we need to force a state change
       $scope.$apply()
@@ -21,6 +20,7 @@
 
     this.sendMessage = function () {
       socket.emit('chat message', this.message)
+      this.message = ''
     }
   }
 })()
