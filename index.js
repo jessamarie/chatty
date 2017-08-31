@@ -19,8 +19,11 @@ app.get('/', function (req, res) {
 // listen to socket
 client.on('connection', function (socket) {
   console.log('a user connected')
-  socket.on('disconnect', () => {
-    console.log('user disconnected')
+  // socket.on('disconnect', () => {
+  //   console.log('user disconnected')
+  // })
+  socket.on('chat message', (msg) => {
+    console.log('message: ' + msg)
   })
 })
 
