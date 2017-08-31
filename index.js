@@ -19,11 +19,18 @@ app.get('/', function (req, res) {
 // listen to socket
 client.on('connection', function (socket) {
   console.log('a user connected')
-  // socket.on('disconnect', () => {
-  //   console.log('user disconnected')
-  // })
+
+  // broadcast to everyone except
+  // for a certain socket
+  // socket.broadcast.emit('hi');
+
   socket.on('chat message', (msg) => {
-    console.log('message: ' + msg)
+    // console.log('message: ' + msg)
+    client.emit('chat message', msg)
+  })
+
+  socket.on('disconnect', () => {
+    console.log('user disconnected')
   })
 })
 
