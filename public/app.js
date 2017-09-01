@@ -1,23 +1,31 @@
-/* global vue io */
+/* global Vue io */
 var socket = io()
 
 var vm = new Vue({
   el: '#app',
   data: {
     messages: [],
-    message: ''
+    message: '',
+    name: '',
+    hasName: false
   },
   mounted: function () {
     var self = this
-    console.log(self)
     socket.on('chat message', function (msg) {
       self.messages.push(msg)
     })
   },
   methods: {
     sendMessage: function () {
-      socket.emit('chat message', this.message)
-      this.message = ''
+      if (this.message) {
+        socket.emit('chat message', `${this.name}: ${this.message}`)
+        this.message = ''
+      }
+    },
+    saveName: function () {
+      if (this.name) {
+        this.hasName = true
+      }
     }
   }
 })
