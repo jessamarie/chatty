@@ -1,4 +1,4 @@
-/* global angular io */
+/* global vue io */
 var socket = io()
 
 var vm = new Vue({
@@ -12,7 +12,6 @@ var vm = new Vue({
     console.log(self)
     socket.on('chat message', function (msg) {
       self.messages.push(msg)
-      // $scope.$apply()
     })
   },
   methods: {
