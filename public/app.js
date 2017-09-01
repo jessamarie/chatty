@@ -17,8 +17,10 @@ var vm = new Vue({
   },
   methods: {
     sendMessage: function () {
-      socket.emit('chat message', `${this.name}: ${this.message}`)
-      this.message = ''
+      if (this.message) {
+        socket.emit('chat message', `${this.name}: ${this.message}`)
+        this.message = ''
+      }
     },
     saveName: function () {
       if (this.name) {
