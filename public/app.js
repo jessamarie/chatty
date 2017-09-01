@@ -1,26 +1,24 @@
 /* global angular io */
+var socket = io()
 
-(function () {
-  angular.module('chattyApp', [])
-  .controller('ChattyController', ['$scope', ChattyController])
-
-  function ChattyController ($scope) {
-    // contains all incoming messages
-    var socket = io()
-    let self = this
-    this.messages = []
-
-    // append to page
+var vm = new Vue({
+  el: '#app',
+  data: {
+    messages: [],
+    message: ''
+  },
+  mounted: function () {
+    var self = this
+    console.log(self)
     socket.on('chat message', function (msg) {
       self.messages.push(msg)
-      // Socket events will not trigger a state change in Angular.
-      // so we need to force a state change
-      $scope.$apply()
+      // $scope.$apply()
     })
-
-    this.sendMessage = function () {
+  },
+  methods: {
+    sendMessage: function () {
       socket.emit('chat message', this.message)
       this.message = ''
     }
   }
-})()
+})
