@@ -52,7 +52,7 @@ The biggest hurdle I had was wrapping my head around the the instance lifecycle.
 
 I recommend starting with [Vue's official guide][1]. Do NOT use Vue's cli at first to scaffold a project. Also, download Vue's helpful [dev-tools][3] for your browser.
 
-To get started with your own Vue project see the instructions at the end of this document.
+To get started with your own Vue project see the [instructions below](#new-project).
 
   - **What article or forum was most helpful to you in learning this?**
 
@@ -114,7 +114,9 @@ npm install
 npm start
 ```
 
-### instructions for a new project
+Navigate to http://localhost:3000/
+
+### Instructions to create a new project  <a id="new-project"></a>
 
 `cd` to the directory you want to create your project. Now:
 
