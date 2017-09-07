@@ -8,38 +8,8 @@
     <title>Chatty Vue</title>
   </head>
   <body>
+    <div id="root"></div>
 
-    <header>
-      <h1>Chatty</h1>
-    </header>
-
-    <main id="app">
-
-      <ul id="messages">
-        <li v-for="item in messages">
-          {{item}}
-        </li>
-      </ul>
-
-      <form v-if="!hasName" v-on:submit.prevent="saveName">
-        <input id="m" v-model="name" placeholder="Enter your name" autocomplete="off" />
-        <button>Set Name</button>
-      </form>
-
-      <form v-if="hasName" v-on:submit.prevent="sendMessage">
-        <input id="m" v-model="message" placeholder="Enter a message" autocomplete="off" />
-        <button>Send</button>
-      </form>
-
-    </main>
-
-    <footer>
-      <p>Made with &hearts; by Jessa</p>
-      <a href="https://github.com/jessamarie/chatty" target="_blank"><i class="fa fa-2x fa-github" aria-hidden="true"></i></a>
-    </footer>
-
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="/vue/dist/vue.js" charset="utf-8"></script>
-    <script src="app.js" charset="utf-8"></script>
+    <script src="dist/bundle.js" charset="utf-8"></script>
   </body>
 </html>

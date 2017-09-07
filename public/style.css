@@ -7,6 +7,9 @@ html, body, header, main, form, li, input, button, div, footer, h1, p, a {
 body {
   font: 13px Helvetica, Arial;
   background-color: rgb(180,170,197);
+}
+
+.App {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
@@ -54,6 +57,8 @@ a {
 form {
   padding: 3px;
   width: 100%;
+  height: 10vh;
+  display: flex;
 }
 
 form input {
@@ -61,17 +66,19 @@ form input {
   padding: 10px;
   width: 86%;
   margin-right: .5%;
+  height: 100%;
 }
 
 form button {
   font-size: 1.5vw;
-  width: 12%;
+  width: 14%;
   background: #FFF;
   border: none;
+  height: 100%;
   padding: 10px;
 }
 
-#messages {
+.messages {
   background-color: white;
   list-style-type: none;
   margin: 0;
@@ -79,7 +86,7 @@ form button {
   flex: 1;
 }
 
-#messages li {
+.messages li {
   padding: 5px 10px;
 }
 
@@ -94,6 +101,6 @@ messages li:nth-child(odd) {
 
   form button {
     font-size: 2vw;
-    width: 18%;
+    width: 20%;
   }
 }
